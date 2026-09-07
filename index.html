@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Happy Girlfriend Day 💕</title>
+<meta name="description" content="A beautiful love letter built just for you, SIMMI. Happy Girlfriend Day!" />
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- 3D floating heart particle field (three.js canvas) -->
+  <canvas id="heart-field"></canvas>
+
+  <!-- Sparkle overlay -->
+  <div id="sparkle-overlay"></div>
+
+  <!-- Rose petals float layer -->
+  <div id="petal-layer"></div>
+
+  <!-- Customize panel -->
+  <button id="customize-toggle" title="Customize">✎ Edit</button>
+  <button id="project-fullscreen" type="button" aria-label="Open project in fullscreen" aria-pressed="false" title="View fullscreen">
+    <svg class="fullscreen-enter-icon" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true">
+      <path d="M8 3H3v5M16 3h5v5M8 21H3v-5M16 21h5v-5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+    <svg class="fullscreen-exit-icon" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true">
+      <path d="M9 3v6H3M15 3v6h6M9 21v-6H3M15 21v-6h6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+    <span class="fullscreen-label">Full Screen</span>
+  </button>
+
+  <div id="customize-panel" class="hidden">
+    <h4>Personalize</h4>
+    <label>Her name
+      <input type="text" id="input-name" placeholder="e.g. Riya" maxlength="24" />
+    </label>
+    <label>Together since
+      <input type="date" id="input-date" />
+    </label>
+    <label>Your name (signature)
+      <input type="text" id="input-signature" placeholder="e.g. Arjun" maxlength="24" />
+    </label>
+    <button id="save-customize">Save</button>
+    <p class="hint">Saved on this device only.</p>
+  </div>
+
+  <!-- ============ HERO ============ -->
+  <section id="hero" class="section">
+    <div class="hero-glow"></div>
+    <div class="hero-heart-float">
+      <span>💕</span>
+    </div>
+    <p class="eyebrow">✦ 01 · Aug 1 ✦</p>
+    <h1 class="hero-title">
+      Happy<br />
+      <span class="script">Girlfriend Day</span><br />
+      <span id="hero-name" class="hero-name-glow">SIMMI</span>
+    </h1>
+    <p class="hero-sub">A little corner of the internet, built only to remind you how loved you are today — and every day. You make my world beautiful just by being in it. 💗</p>
+    <button class="scroll-cue" id="scroll-cue">
+      <span>Open the love letter</span>
+      <svg viewBox="0 0 24 24" width="18" height="18"><path d="M12 4v14m0 0l-6-6m6 6l6-6" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </button>
+  </section>
+
+  <!-- ============ LOVE LETTER ENVELOPE ============ -->
+  <section id="letter-section" class="section">
+    <p class="eyebrow">💌 02 · A love note for you</p>
+    <div class="envelope-wrap">
+      <div class="envelope" id="envelope">
+        <div class="flap"></div>
+        <div class="pocket-left"></div>
+        <div class="pocket-right"></div>
+        <div class="pocket-front">
+          <div class="envelope-seal">💋</div>
+        </div>
+        <div class="letter" id="letter-paper">
+          <p class="letter-greeting">My Dearest <span id="letter-name">SIMMI</span>,</p>
+          <p>Some days deserve their own name — today is yours. Girlfriend Day is really just an excuse for the world to catch up on something I already know every single day: <strong>I'm the luckiest person</strong> because you chose me.</p>
+          <p>Thank you for the butterflies, the late-night calls that turn into early morning conversations, and for being my calm in every storm. You are my favorite hello and my hardest goodbye.</p>
+          <p>Every love song makes sense because of you. Every sunset is prettier because I watch it thinking of your smile. 🌹</p>
+          <p class="letter-sign">Forever yours,<br/>— <span id="letter-signature">Ayushkr Pandey</span> 💕</p>
+        </div>
+      </div>
+      <p class="envelope-hint" id="envelope-hint">💋 tap the envelope to open your love letter</p>
+    </div>
+  </section>
+
+  <!-- ============ STATS ============ -->
+  <section id="stats-section" class="section">
+    <p class="eyebrow">💑 03 · Us, in numbers</p>
+    <h2 class="section-title">Our Love Story</h2>
+    <div class="stats-grid">
+      <div class="stat-card" data-tilt>
+        <div class="stat-icon">💕</div>
+        <span class="stat-number" id="stat-days">—</span>
+        <span class="stat-label">beautiful days together</span>
+      </div>
+      <div class="stat-card" data-tilt>
+        <div class="stat-icon">😍</div>
+        <span class="stat-number">∞</span>
+        <span class="stat-label">reasons I love you</span>
+      </div>
+      <div class="stat-card" data-tilt>
+        <div class="stat-icon">👸</div>
+        <span class="stat-number">1</span>
+        <span class="stat-label">queen of my heart</span>
+      </div>
+      <div class="stat-card" data-tilt>
+        <div class="stat-icon">💋</div>
+        <span class="stat-number">10<sup>∞</sup></span>
+        <span class="stat-label">kisses I owe you</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ REASONS FLIP CARDS ============ -->
+  <section id="reasons-section" class="section">
+    <p class="eyebrow">💝 04 · Reasons, not ranked</p>
+    <h2 class="section-title">Why I Love You</h2>
+    <p class="section-sub">Tap a card to reveal a secret 💗</p>
+    <div class="cards-grid" id="cards-grid"></div>
+  </section>
+
+  <!-- ============ 3D CAROUSEL ============ -->
+  <section id="gallery-section" class="section">
+    <p class="eyebrow">📸 05 · Our Moments</p>
+    <h2 class="section-title">Frames Worth Keeping</h2>
+    <p class="section-sub">A gallery of beautiful moments 💕 Tap the center photo for full view.</p>
+    <div class="carousel-wrap">
+      <button class="carousel-arrow left" id="arrow-left" aria-label="previous">‹</button>
+      <div class="carousel-stage" id="carousel-stage"></div>
+      <button class="carousel-arrow right" id="arrow-right" aria-label="next">›</button>
+    </div>
+  </section>
+
+  <!-- ============ PROPOSE SECTION ============ -->
+  <section id="propose-section" class="section">
+    <p class="eyebrow">💍 06 · The Big Question</p>
+    <h2 class="section-title propose-title">Will You Be Mine Forever?</h2>
+    <p class="section-sub">Try clicking "No" if you dare... 😏</p>
+    <div class="propose-buttons-wrap">
+      <button id="propose-yes" class="propose-btn propose-yes">Yes, I'm yours! 💕</button>
+      <button id="propose-no" class="propose-btn propose-no">No 💔</button>
+    </div>
+    <div id="propose-celebration" class="propose-celebration hidden">
+      <div class="celebration-text">
+        <h2>She said YES! 🎉💕</h2>
+        <p>I knew you couldn't say no! You're stuck with me forever now 😘</p>
+        <div class="celebration-hearts" id="celebration-hearts"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ CLOSING ============ -->
+  <section id="closing-section" class="section">
+    <div class="closing-heart-wrap">
+      <div class="closing-heart" id="closing-heart"></div>
+    </div>
+    <h2 class="closing-title">I Love You, <span id="closing-name">SIMMI</span> 💕</h2>
+    <p class="closing-sub">Press the heart. Let it out. 💗</p>
+    <button id="burst-btn" class="burst-btn">Send All My Love ♥</button>
+    <p class="closing-footer">Made with all my love · <span id="closing-signature">Ayushkr Pandey</span> 💕</p>
+  </section>
+
+  <!-- ============ MUSIC TOGGLE ============ -->
+  <button id="music-toggle" class="music-toggle" title="Toggle romantic music">
+    🎵
+  </button>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
