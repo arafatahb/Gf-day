@@ -150,8 +150,8 @@ function loadConfig(){
 }
 
 function applyConfig(cfg){
-  const name = cfg.name && cfg.name.trim() ? cfg.name.trim() : 'SIMMI';
-  const signature = cfg.signature && cfg.signature.trim() ? cfg.signature.trim() : 'Ayushkr Pandey';
+  const name = cfg.name && cfg.name.trim() ? cfg.name.trim() : 'Nazifa💫';
+  const signature = cfg.signature && cfg.signature.trim() ? cfg.signature.trim() : 'Arafat';
 
   document.getElementById('hero-name').textContent = name;
   document.getElementById('letter-name').textContent = name;
